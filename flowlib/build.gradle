@@ -10,12 +10,12 @@ def getVersionName = { ->
 }
 
 def getArtificatId = { ->
-    return "flowlib" // Replace with library name ID
+    return "flow-lib" // Replace with library name ID
 }
 
 publishing {
     publications {
-        bar(MavenPublication) {
+        foo(MavenPublication) {
             groupId 'com.flumine.libs' // Replace with group ID
             artifactId getArtificatId()
             version getVersionName()
@@ -25,7 +25,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/oudun/flow-reader")
+            url = uri("https://maven.pkg.github.com/oudun/flowlib")
             credentials {
                 username = githubProperties['gpr.usr'] ?: System.getenv("USERNAME")
                 password = githubProperties['gpr.key'] ?: System.getenv("TOKEN")
